@@ -1,0 +1,74 @@
+package tests;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class PracticeFormTest {
+
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.browserSize = "2560x1440";
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.holdBrowserOpen = true;
+    }
+
+    @Test
+    void fillFormTest() {
+        open("/automation-practice-form");
+
+        //Заполняем ФИО
+        $("#firstName").setValue("QA");
+        $("#lastName").setValue("GURU");
+        //Заполняем e-mail
+        $("#userEmail").setValue("QAGURU@rambler.com");
+        //Заполняем пол
+        $("label[for='gender-radio-1']").click();
+        //Заполняем телефон
+        $("#userNumber").setValue("8888888888");
+        //Заполняем дату рождения
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__year-select").selectOption("1997");
+        $(".react-datepicker__month-select").selectOption("May");
+        $(".react-datepicker__day--001").click();
+        //Заполняем объекты
+        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#subjectsInput").setValue("Physics").pressEnter();
+        $("#subjectsInput").setValue("Computer Science").pressEnter();
+        //Заполняем хобби
+        $("label[for='hobbies-checkbox-1']").click();
+        $("label[for='hobbies-checkbox-3']").click();
+        //Заполняем фото
+        $("#uploadPicture").uploadFromClasspath("picture.jpg");
+        //Заполняем адрес
+        $("#currentAddress").setValue("Чита, Бабушкина, 58");
+        //Заполняем штат и город
+        $("#state").click();
+        $("#react-select-3-input").setValue("Rajasthan").pressEnter();
+        $("#city").click();
+        $("#react-select-4-input").setValue("Jaipur").pressEnter();
+        //Отправляем данные
+        $("#submit").click();
+        //Проверка заполненных данных
+        $(".table-responsive").
+                shouldHave(
+                        text("QA GURU"),
+                        text("QAGURU@rambler.com"),
+                        text("Male"),
+                        text("8888888888"),
+                        text("01 May,1997"),
+                        text("Maths, Physics, Computer Science"),
+                        text("Sports, Music"),
+                        text("picture.jpg"),
+                        text("Чита, Бабушкина, 58"),
+                        text("Rajasthan Jaipur")
+                );
+    }
+}
