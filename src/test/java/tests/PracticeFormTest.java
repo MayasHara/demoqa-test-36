@@ -41,9 +41,9 @@ public class PracticeFormTest {
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__day--001").click();
         //Заполняем объекты
-        $("#subjectsInput").setValue("English").pressEnter();
-        $("#subjectsInput").setValue("Economics").pressEnter();
-        $("#subjectsInput").setValue("Computer Science").pressEnter();
+        $("#subjectsInput").setValue("English").click();
+        $("#subjectsInput").setValue("Economics").click();
+        $("#subjectsInput").setValue("Computer Science").click();
         //Заполняем хобби
         $("label[for='hobbies-checkbox-1']").click();
         $("label[for='hobbies-checkbox-3']").click();
