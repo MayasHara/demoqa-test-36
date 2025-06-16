@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
 
@@ -16,13 +15,16 @@ public class PracticeFormTest {
     static void beforeAll() {
         Configuration.browserSize = "2560x1440";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
+        Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
     }
 
     @Test
     void fillFormTest() {
-        open("/automation-practice-form");
+        //Открываем browser
+        open("");
+        //Удаляем рекламу и банеры
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
 
         //Заполняем ФИО
         $("#firstName").setValue("QA");
@@ -30,7 +32,7 @@ public class PracticeFormTest {
         //Заполняем e-mail
         $("#userEmail").setValue("QAGURU@rambler.com");
         //Заполняем пол
-        $("label[for='gender-radio-1']").click();
+        $("label[for='gender-radio-1").click();
         //Заполняем телефон
         $("#userNumber").setValue("8888888888");
         //Заполняем дату рождения
