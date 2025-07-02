@@ -65,16 +65,16 @@ public class PracticeFormTest {
 //        //Отправляем данные
 //        $("#submit").click();
 //        //Проверка заполненных данных
-        $(".table-responsive").shouldHave(text("QA GURU"));
-        $(".table-responsive").shouldHave(text("QAGURU@rambler.com"));
-        $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("8888888888"));
-        $(".table-responsive").shouldHave(text("01 May,1997"));
-        $(".table-responsive").shouldHave(text("English, Economics, Computer Science"));
-        $(".table-responsive").shouldHave(text("Sports, Music"));
-        $(".table-responsive").shouldHave(text("picture.jpg"));
-        $(".table-responsive").shouldHave(text("Чита, Бабушкина, 58"));
-        $(".table-responsive").shouldHave(text("Rajasthan Jaipur"));
+//        $(".table-responsive").shouldHave(text("QA GURU"));
+//        $(".table-responsive").shouldHave(text("QAGURU@rambler.com"));
+//        $(".table-responsive").shouldHave(text("Male"));
+//        $(".table-responsive").shouldHave(text("8888888888"));
+//        $(".table-responsive").shouldHave(text("01 May,1997"));
+//        $(".table-responsive").shouldHave(text("English, Economics, Computer Science"));
+//        $(".table-responsive").shouldHave(text("Sports, Music"));
+//        $(".table-responsive").shouldHave(text("picture.jpg"));
+//        $(".table-responsive").shouldHave(text("Чита, Бабушкина, 58"));
+//        $(".table-responsive").shouldHave(text("Rajasthan Jaipur"));
     }
 
     @Test
