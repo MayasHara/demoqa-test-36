@@ -21,8 +21,8 @@ public class PracticeFormTest {
         Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
     }
 
-    @Test
-    void fillFormTest() {
+//    @Test
+//    void fillFormTest() {
 //        //Открываем browser
 //        open("");
 //        //Удаляем рекламу и банеры
@@ -75,7 +75,7 @@ public class PracticeFormTest {
 //        $(".table-responsive").shouldHave(text("picture.jpg"));
 //        $(".table-responsive").shouldHave(text("Чита, Бабушкина, 58"));
 //        $(".table-responsive").shouldHave(text("Rajasthan Jaipur"));
-    }
+//    }
 
     @Test
     void successfulRegistrationTest() {
