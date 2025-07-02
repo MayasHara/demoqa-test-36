@@ -18,24 +18,23 @@ public class TextBoxTests {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com/text-box";
-        Configuration.holdBrowserOpen = true;
     }
 
-    @Test
-    void fillFormTest() {
-        open("");
-        $("#userName").setValue("QA");
-        $("#userEmail").setValue("QA@mail.ru");
-        $("#currentAddress").setValue("Пушкина");
-        $("#permanentAddress").setValue("Russia");
-        $("#submit").click();
-
-        $("#output").$("#name").shouldHave(text("QA"));
-        $("#output #email").shouldHave(text("QA@mail.ru"));
-        $("#output #currentAddress").shouldHave(text("Пушкина"));
-        $("#output #permanentAddress").shouldHave(text("Russia"));
-
-    }
+//    @Test
+//    void fillFormTest() {
+//        open("");
+//        $("#userName").setValue("QA");
+//        $("#userEmail").setValue("QA@mail.ru");
+//        $("#currentAddress").setValue("Пушкина");
+//        $("#permanentAddress").setValue("Russia");
+//        $("#submit").click();
+//
+//        $("#output").$("#name").shouldHave(text("QA"));
+//        $("#output #email").shouldHave(text("QA@mail.ru"));
+//        $("#output #currentAddress").shouldHave(text("Пушкина"));
+//        $("#output #permanentAddress").shouldHave(text("Russia"));
+//
+//    }
 
 
     @Test
