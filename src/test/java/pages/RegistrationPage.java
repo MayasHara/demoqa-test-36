@@ -13,30 +13,32 @@ public class RegistrationPage {
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genderWrapper = $("label[for='gender-radio-1"),
+            genderWrapper = $("#genterWrapper"),
             userNumber = $("#userNumber"),
-            calendarInput = $("#dateOfBirthInput"),
             objectInput = $("#subjectsInput"),
-            objectOption = $(".subjects-auto-complete__option"),
-            hobbiesWrapperSport = $("label[for='hobbies-checkbox-1']"),
-            hobbiesWrapperMusic = $("label[for='hobbies-checkbox-3']"),
+            hobbiesWrapper = $("#hobbiesWrapper"),
             uploadInput = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
-            selectState = $("#react-select-3-input"),
             cityInput = $("#city"),
-            selectCity = $("#react-select-4-input"),
-            submitData = $("#submit");
-
+            cityWrapper = $("#stateCity-wrapper"),
+            submitData = $("#submit"),
+            date = $("#dateOfBirthInput");
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    Result formResult = new Result();
 
 
     public RegistrationPage openPage() {
         open("");
+
+        return this;
+    }
+
+    public RegistrationPage remove (){
+
         executeJavaScript("$('footer').remove();");
         executeJavaScript("$('#fixedban').remove();");
-
 
         return this;
     }
@@ -62,7 +64,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setGender(String value){
-        genderWrapper.click();
+        genderWrapper.$(byText(value)).click();
 
         return this;
     }
@@ -75,52 +77,55 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setDateOfBirth (String day, String month, String year) {
-        calendarInput.click();
-        calendarComponent.setDate("01", "May","1997");
+
+        date.click();
+        calendarComponent.setDate(day, month, year);
 
 
         return this;
     }
 
 
-    public RegistrationPage setObjectInput (String Eng, String Econ, String Comp){
-        objectInput.setValue("Eng");
-        objectOption.click();
-        objectInput.setValue("Econ");
-        objectOption.click();
-        objectInput.setValue("Comp");
-        objectOption.click();
-
-        return this;
-    }
-
-    public RegistrationPage setHobbiesWrapper (String Sport, String Music){
-        hobbiesWrapperSport.click();
-        hobbiesWrapperMusic.click();
+    public RegistrationPage setObjectInput (String value){
+        objectInput.setValue(value);
+        objectInput.pressEnter();
 
 
         return this;
     }
 
-    public RegistrationPage setPicture (String value){
-        uploadInput.uploadFromClasspath("picture.jpg");
+    public RegistrationPage setHobbiesWrapper (String value){
+
+        hobbiesWrapper.$(byText(value)).click();
+
+
+        return this;
+    }
+
+    public RegistrationPage setPicture (String resources){
+        uploadInput.uploadFromClasspath(resources);
 
         return this;
     }
 
     public RegistrationPage setAdress (String value){
-        addressInput.setValue("Чита, Бабушкина, 58");
+        addressInput.setValue(value);
 
 
         return this;
     }
 
-    public RegistrationPage setState (String Rajasthan, String Jaipur){
+    public RegistrationPage setState (String value){
         stateInput.click();
-        selectState.setValue("Rajasthan").pressEnter();
-        cityInput.click();
-        selectCity.setValue("Jaipur").pressEnter();
+        cityWrapper.$(byText(value)).click();
 
+
+        return this;
+    }
+
+    public RegistrationPage setCity(String value) {
+        cityInput.click();
+        cityWrapper.$(byText(value)).click();
         return this;
     }
 
@@ -130,16 +135,10 @@ public class RegistrationPage {
         return this;
     }
 
-
-    public RegistrationPage checkResult(String key, String value){
-        $(".table-responsive")
-                .$(byText(key))
-                .parent()
-                .shouldHave(text(value));
-
+    public RegistrationPage checkResult(String key, String value) {
+        formResult.result(key, value);
 
         return this;
     }
-
 
 }
