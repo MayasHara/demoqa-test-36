@@ -24,7 +24,7 @@ public class PracticeFormTest {
     void successfulRegistrationTest() {
         registrationPage
                 .openPage()
-                .remove()
+                .removeAds()
                 .setFirstName("QA")
                 .setLastName("GURU")
                 .setEmail("QAGURU@rambler.com")
