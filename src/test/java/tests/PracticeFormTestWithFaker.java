@@ -10,34 +10,34 @@ import static tests.TestData.*;
 public class PracticeFormTestWithFaker  extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData data = new TestData();
 
     @Test
     void successfulRegistrationTest() {
         registrationPage.openPage()
-                .remove()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(day, month, year)
-                .setObjectInput(subject)
-                .setHobbiesWrapper(hobby)
-                .setPicture(pictureName)
-                .setAdress(currentAddress)
-                .setState(state)
-                .setCity(city)
-                .sendData("submit");
+                .removeAds()
+                .setFirstName(data.userName)
+                .setLastName(data.lastName)
+                .setEmail(data.userEmail)
+                .setGender(data.gender)
+                .setUserNumber(data.userNumber)
+                .setDateOfBirth(data.day, data.month, data.year)
+                .setObjectInput(data.subject)
+                .setHobbiesWrapper(data.hobbies)
+                .setPicture(data.generator.pictureName())
+                .setAdress(data.address)
+                .selectStateAndCity(data.state, data.city)
+                .sendData();
 
-        registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
-                .checkResult("Subjects", subject)
-                .checkResult("Hobbies", hobby)
-                .checkResult("Picture", pictureName)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + city);
+        registrationPage.checkResult("Student Name", data.userName + " " + data.lastName)
+                .checkResult("Student Email", data.userEmail)
+                .checkResult("Gender", data.gender)
+                .checkResult("Mobile", data.userNumber)
+                .checkResult("Date of Birth", data.day + " " + data.month + "," + data.year)
+                .checkResult("Subjects", data.subject)
+                .checkResult("Hobbies", data.hobbies)
+                .checkResult("Picture", data.generator.pictureName())
+                .checkResult("Address", data.address)
+                .checkResult("State and City", data.state + " " + data.city);
     }
 }

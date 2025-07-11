@@ -115,21 +115,16 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setState (String value){
+    public RegistrationPage selectStateAndCity(String state, String city) {
         stateInput.click();
-        cityWrapper.$(byText(value)).click();
-
-
-        return this;
-    }
-
-    public RegistrationPage setCity(String value) {
+        $(byText(state)).click();
         cityInput.click();
-        cityWrapper.$(byText(value)).click();
+        $(byText(city)).click();
+
         return this;
     }
 
-    public RegistrationPage sendData (String value){
+    public RegistrationPage sendData(){
         submitData.click();
 
         return this;

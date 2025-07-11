@@ -35,9 +35,8 @@ public class PracticeFormTest {
                 .setHobbiesWrapper("Sports")
                 .setPicture("picture.jpg")
                 .setAdress("Чита, Бабушкина, 58")
-                .setState("Rajasthan")
-                .setCity("Jaipur")
-                .sendData("Submit");
+                .selectStateAndCity("Rajasthan", "Jaipur")
+                .sendData();
 
         registrationPage.checkResult("Student Name", "QA" + " " + "GURU")
                 .checkResult("Student Email","QAGURU@rambler.com")
@@ -65,9 +64,8 @@ public class PracticeFormTest {
                 .setHobbiesWrapper("Sports")
                 .setPicture("picture.jpg")
                 .setAdress("Чита, Бабушкина, 58")
-                .setState("Rajasthan")
-                .setCity("Jaipur")
-                .sendData("Submit");
+                .selectStateAndCity("Rajasthan", "Jaipur")
+                .sendData();
 
         sleep(5000);
     }
@@ -81,7 +79,7 @@ public class PracticeFormTest {
                 .setGender("Male")
                 .setUserNumber("8888888888")
                 .setDateOfBirth("22", "May", "1997")
-                .sendData("Submit");
+                .sendData();
 
         registrationPage.checkResult("Student Name", "QA" + " " + "GURU")
                 .checkResult("Gender","Male")
