@@ -20,23 +20,6 @@ public class TextBoxTests {
         Configuration.baseUrl = "https://demoqa.com/text-box";
     }
 
-//    @Test
-//    void fillFormTest() {
-//        open("");
-//        $("#userName").setValue("QA");
-//        $("#userEmail").setValue("QA@mail.ru");
-//        $("#currentAddress").setValue("Пушкина");
-//        $("#permanentAddress").setValue("Russia");
-//        $("#submit").click();
-//
-//        $("#output").$("#name").shouldHave(text("QA"));
-//        $("#output #email").shouldHave(text("QA@mail.ru"));
-//        $("#output #currentAddress").shouldHave(text("Пушкина"));
-//        $("#output #permanentAddress").shouldHave(text("Russia"));
-//
-//    }
-
-
     @Test
     void textBoxWithPageObjectTest(){
         textBoxPage.openPage()

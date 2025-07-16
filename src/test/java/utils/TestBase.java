@@ -1,4 +1,4 @@
-package tests;
+package utils;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class TestBase {
 
-    Generator data = new Generator();
+    GeneratorUtils data = new GeneratorUtils();
 
     @BeforeAll
     static void setUp() {

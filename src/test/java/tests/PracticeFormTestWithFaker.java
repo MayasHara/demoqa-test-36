@@ -2,15 +2,16 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static com.codeborne.selenide.Selenide.sleep;
-import static tests.TestData.*;
+import utils.GeneratorUtils;
+import utils.TestBase;
+import utils.TestData;
 
 
 public class PracticeFormTestWithFaker  extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     TestData data = new TestData();
+    GeneratorUtils generator = new GeneratorUtils();
 
     @Test
     void successfulRegistrationTest() {
@@ -18,25 +19,25 @@ public class PracticeFormTestWithFaker  extends TestBase {
                 .removeAds()
                 .setFirstName(data.userName)
                 .setLastName(data.lastName)
-                .setEmail(data.userEmail)
-                .setGender(data.gender)
-                .setUserNumber(data.userNumber)
+                .setEmail(data.userEmailAddress)
+                .setGender(data.genderOfUser)
+                .setUserNumber(data.number)
                 .setDateOfBirth(data.day, data.month, data.year)
-                .setObjectInput(data.subject)
+                .setObjectInput(data.subjectOfUsers)
                 .setHobbiesWrapper(data.hobbies)
-                .setPicture(data.generator.pictureName())
+                .setPicture(generator.pictureName())
                 .setAdress(data.address)
                 .selectStateAndCity(data.state, data.city)
                 .sendData();
 
         registrationPage.checkResult("Student Name", data.userName + " " + data.lastName)
-                .checkResult("Student Email", data.userEmail)
-                .checkResult("Gender", data.gender)
-                .checkResult("Mobile", data.userNumber)
+                .checkResult("Student Email", data.userEmailAddress)
+                .checkResult("Gender", data.genderOfUser)
+                .checkResult("Mobile", data.number)
                 .checkResult("Date of Birth", data.day + " " + data.month + "," + data.year)
-                .checkResult("Subjects", data.subject)
+                .checkResult("Subjects", data.subjectOfUsers)
                 .checkResult("Hobbies", data.hobbies)
-                .checkResult("Picture", data.generator.pictureName())
+                .checkResult("Picture", generator.pictureName())
                 .checkResult("Address", data.address)
                 .checkResult("State and City", data.state + " " + data.city);
     }
