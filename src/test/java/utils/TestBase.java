@@ -12,7 +12,7 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
-        Configuration.browserSize = "2560x1440";
+        Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
