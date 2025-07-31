@@ -47,7 +47,7 @@ public class GeneratorUtils {
         return faker.options().option(TestBase.mapStateWithCity.get(state));
     }
     public static Date userBirthday(){
-        return faker.date().birthday(1, 28);
+        return faker.date().birthday();
     }
     public static String dayOfBirthday(Date birthday){
         return new SimpleDateFormat("dd", Locale.ENGLISH).format(birthday);
