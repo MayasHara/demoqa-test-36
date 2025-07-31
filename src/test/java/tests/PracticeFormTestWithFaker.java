@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.GeneratorUtils;
@@ -17,6 +18,7 @@ public class PracticeFormTestWithFaker  extends TestBase {
     TestData data = new TestData();
     GeneratorUtils generator = new GeneratorUtils();
 
+    @Tag("Faker")
     @Test
     void successfulRegistrationTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
