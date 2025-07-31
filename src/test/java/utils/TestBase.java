@@ -14,6 +14,7 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
         Configuration.browserSize = "2560x1440";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
     public static final String uploadFile = "MyPhoto.jpg";
 
