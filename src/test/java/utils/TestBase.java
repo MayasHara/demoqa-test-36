@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static java.util.List.of;
 
 public class TestBase {
@@ -35,6 +36,7 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        closeWebDriver();
     }
     public static final String uploadFile = "MyPhoto.jpg";
 
