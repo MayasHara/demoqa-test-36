@@ -21,7 +21,7 @@ public class PracticeFormTestWithFaker  extends TestBase {
     @Tag("Faker")
     @Test
     void successfulRegistrationTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         step("Открываем страницу",() -> {
             registrationPage.openPage();
         });

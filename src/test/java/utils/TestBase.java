@@ -1,9 +1,12 @@
 package utils;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -15,6 +18,11 @@ import static java.util.List.of;
 public class TestBase {
 
     GeneratorUtils data = new GeneratorUtils();
+
+    @BeforeEach
+    void listener() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
     @BeforeAll
     static void setUp() {
