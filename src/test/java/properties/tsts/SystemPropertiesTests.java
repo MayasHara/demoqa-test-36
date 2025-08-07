@@ -2,8 +2,9 @@ package properties.tsts;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import utils.TestBase;
 
-public class SystemPropertiesTests {
+public class SystemPropertiesTests extends TestBase {
 
     @Test
     void systemPropertiesTest () {
